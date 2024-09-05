@@ -132,3 +132,7 @@ dist
 #added for parcel
 dist
 .parce-cache
+
+
+#
+notes.txt

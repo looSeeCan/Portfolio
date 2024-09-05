@@ -20,5 +20,36 @@ footer {
 }
 
 main {
+  display: flex;
   flex: 1;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: lightblue;
+}
+
+aside div:first-of-type {
+  background-color: antiquewhite;
+  flex: 2;
+}
+
+aside div:nth-of-type(2) {
+  flex: 1;
+  background-color: aqua;
+}
+
+section {
+  flex: 3;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  aside {
+    order: -1;
+  }
 }

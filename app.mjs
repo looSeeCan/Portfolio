@@ -1,7 +1,9 @@
 import express from "express";
 import path from "node:path";
+import helmet from "helmet";
 
 const app = express();
+app.use(helmet());
 
 app.use(express.static(path.join(process.cwd(), "dist")));
 
@@ -12,5 +14,3 @@ app.listen(PORT, () => {
 });
 
 // TODO: "main": app.mjs
-
-console.log("message");
