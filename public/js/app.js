@@ -23,10 +23,7 @@ const navigate = (path) => {
 
 window.onload = () => {
   console.log(window.location.pathname);
-
-  // navigate(window.location.pathname);
-  // navigate("/about");
-  navigate("/");
+  navigate(window.location.pathname);
 };
 
 window.onpopstate = () => {
