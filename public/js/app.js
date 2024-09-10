@@ -1,6 +1,7 @@
 import home from "./home.js";
 import about from "./about.js";
 
+//remember to build before push
 const navigate = (path) => {
   switch (path) {
     case "/":
