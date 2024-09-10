@@ -8,6 +8,11 @@ app.use(helmet());
 
 app.use(express.static(path.join(process.cwd(), "dist")));
 
+//Catch-all route: Serve the index.html file for any unknown routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(process.cwd(), "dist", "index.html"));
+});
+
 const PORT = process.env.PORT || 5003;
 
 app.listen(PORT, () => {

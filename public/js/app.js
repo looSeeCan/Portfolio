@@ -13,7 +13,7 @@ const navigate = (path) => {
 
       break;
     case "/about":
-      document.getElementById("content").innerHTML = "<h3>About Page</h3>";
+      document.getElementById("content").innerHTML = "<h3>About Pages</h3>";
       break;
     default:
       document.getElementById("content").innerHTML =
