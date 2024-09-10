@@ -1,19 +1,14 @@
-console.dir(window);
+import home from "./home.js";
+import about from "./about.js";
 
 const navigate = (path) => {
   switch (path) {
     case "/":
-      //prettier-ignore
-      document.getElementById("content").innerHTML = 
-      `<aside>
-        <p>Welcome</p>
-      </aside>
-      <section>This is a Section</section>
-      `;
+      home();
 
       break;
     case "/about":
-      document.getElementById("content").innerHTML = "<h3>About Pages</h3>";
+      about();
       break;
     default:
       document.getElementById("content").innerHTML =
@@ -23,6 +18,7 @@ const navigate = (path) => {
 
 window.onload = () => {
   console.log(window.location.pathname);
+  // home();
   navigate(window.location.pathname);
   //trying to fix heroku
 };
@@ -36,7 +32,9 @@ document.getElementById("home").addEventListener("click", (e) => {
   console.log(window.location.pathname);
 
   history.pushState(null, "", "/");
+  // home();
   navigate("/");
+  // window.location.href = "/";
 });
 
 document.getElementById("about").addEventListener("click", (e) => {
@@ -45,4 +43,5 @@ document.getElementById("about").addEventListener("click", (e) => {
 
   history.pushState(null, "", "/about");
   navigate("/about");
+  // about();
 });
