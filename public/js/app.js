@@ -1,11 +1,50 @@
-console.log("message");
+console.dir(window);
 
-const route = (event) => {
-  event = event || window.event;
-  event.preventDefault();
-  console.log("click");
-  // window.history.pushState({}, "", event.target.href);
+const navigate = (path) => {
+  switch (path) {
+    case "/":
+      //prettier-ignore
+      document.getElementById("content").innerHTML = 
+      `<aside>
+        <p>Welcome</p>
+      </aside>
+      <section>This is a Section</section>
+      `;
+
+      break;
+    case "/about":
+      document.getElementById("content").innerHTML = "<h3>About Page</h3>";
+      break;
+    default:
+      document.getElementById("content").innerHTML =
+        "<h1>404 - Page Not Found</h1>";
+  }
 };
 
-///when using es modules functions inside your ap.js file are not autoamtically accessible to the global scope
-window.route = route;
+window.onload = () => {
+  console.log(window.location.pathname);
+
+  // navigate(window.location.pathname);
+  // navigate("/about");
+  navigate("/");
+};
+
+window.onpopstate = () => {
+  navigate(window.location.pathname);
+};
+
+document.getElementById("home").addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log(window.location.pathname);
+
+  history.pushState(null, "", "/");
+  navigate("/");
+});
+
+document.getElementById("about").addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log(window.location.pathname);
+
+  history.pushState(null, "", "/about");
+  navigate("/about");
+});
