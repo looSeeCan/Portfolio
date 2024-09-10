@@ -24,6 +24,7 @@ const navigate = (path) => {
 window.onload = () => {
   console.log(window.location.pathname);
   navigate(window.location.pathname);
+  //trying to fix heroku
 };
 
 window.onpopstate = () => {
